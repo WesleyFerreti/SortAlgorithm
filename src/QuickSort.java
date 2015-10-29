@@ -4,7 +4,7 @@ import java.util.Stack;
 public class QuickSort {
       
         public static long quickSort(double[] array,boolean desc) {
-            
+            //teste
             
             long IFS = 0;
             Stack<Integer> stack = new Stack<>();//stack == Pilha

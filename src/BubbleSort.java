@@ -1,12 +1,16 @@
+//Wesley Ferreti    142B22
+//Dennis Quintal    142B22
+/*
+    Sobre o algoritmo
 
+
+*/
 import java.util.Scanner;
-
 
 public class BubbleSort {
     public static long IFS = 0;
     public static long bubbleSort(double[] array,boolean desc){
         long tempInicial = System.nanoTime();
-        
         if(!desc){
                  for (int i = array.length; i >= 1; i--) {  
                     for (int j = 1; j < i; j++) {  
@@ -38,10 +42,7 @@ public class BubbleSort {
         return IFS;
     }
     
-    
-    
-    
-    public static void main(String[] args) throws Exception {
+  /*  public static void main(String[] args) throws Exception {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -94,13 +95,12 @@ public class BubbleSort {
                     break;
                 default:
                     System.out.println("Invalido.");
-                    
-                    
+       
             }
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);   
         
     }
     
-  
+  */
 }

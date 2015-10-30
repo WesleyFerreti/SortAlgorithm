@@ -1,4 +1,10 @@
+//Wesley Ferreti    142B22
+//Dennis Quintal    142B22
+/*
+    Sobre o algoritmo
 
+
+*/
 import java.util.Scanner;
 
 public class MergeSort {
@@ -6,17 +12,16 @@ public class MergeSort {
     public static long IFS = 0;
 
     public static long mergeSort(double[] num, boolean desc) {
-
+        long tempInicial = System.nanoTime();
         if (!desc) {
-            long tempInicial = System.nanoTime();
-            sort(num, 0, num.length - 1);//Metodo para Ascendente
-            long tempFinal = System.nanoTime();
-            long tempDecorrido = tempFinal - tempInicial;
-            System.out.println("Tempo decorrido em nanosegundos = " + tempDecorrido);
-            System.out.println("Tempo decorrido em segundos = " + tempDecorrido * Math.pow(10, -9));
+            sort(num, 0, num.length - 1);//Metodo para Ascendente 
         } else {
             sort(num, 0, num.length - 1, 1);//metodo para Descendente
         }
+        long tempFinal = System.nanoTime();
+        long tempDecorrido = tempFinal - tempInicial;
+        System.out.println("Tempo decorrido em nanosegundos = " + tempDecorrido);
+        System.out.println("Tempo decorrido em segundos = " + tempDecorrido * Math.pow(10, -9));
         return IFS;
     }
 
@@ -101,7 +106,7 @@ public class MergeSort {
 
     }
 
-    /*public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
         long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);

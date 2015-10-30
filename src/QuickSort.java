@@ -1,16 +1,23 @@
+//Wesley Ferreti    142B22
+//Dennis Quintal    142B22
+/*
+    Sobre o algoritmo
 
+
+*/
 import java.util.Scanner;
 import java.util.Stack;
-public class QuickSort {
+
+public class QuickSort{
     public static long IFS = 0;
-    public static long quickSort(double[] array,boolean desc) {
+    public static long quickSort(double[] array,boolean desc){
 
         Stack<Integer> stack = new Stack<>();//stack == Pilha
         stack.push(0);
         stack.push(array.length);
+        long tempInicial = System.nanoTime();    
+        if(!desc){ 
             
-        if(!desc){
-            long tempInicial = System.nanoTime();
             while (!stack.isEmpty()) {
         
                 int fim = stack.pop();
@@ -29,10 +36,7 @@ public class QuickSort {
                 stack.push(pivot);
                     
             }
-            long tempFinal = System.nanoTime();
-            long tempDecorrido = tempFinal - tempInicial;  
-            System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
-            System.out.println("Tempo decorrido em segundos = "+ tempDecorrido*Math.pow(10,-9));
+            
         }
         else{     
             while (!stack.isEmpty()) {
@@ -53,6 +57,10 @@ public class QuickSort {
                 stack.push(pivot);
             }  
         }
+        long tempFinal = System.nanoTime();
+        long tempDecorrido = tempFinal - tempInicial;  
+        System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
+        System.out.println("Tempo decorrido em segundos = "+ tempDecorrido*Math.pow(10,-9));
         return IFS;   
     }
 
@@ -108,7 +116,7 @@ public class QuickSort {
         array[j] = temp;
     }
         
-   /* public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");

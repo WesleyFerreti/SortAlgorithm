@@ -1,125 +1,114 @@
 
 import java.util.Scanner;
 
-
 public class MergeSort {
 
-    public static long mergeSort(double[]num, boolean desc){
+    public static long IFS = 0;
 
-        long IFS;
-        
-        if(!desc){        
+    public static long mergeSort(double[] num, boolean desc) {
+
+        if (!desc) {
             long tempInicial = System.nanoTime();
-            IFS =  sort(num,0,num.length-1);//Metodo para Ascendente
+            sort(num, 0, num.length - 1);//Metodo para Ascendente
             long tempFinal = System.nanoTime();
-            double tempDecorrido = tempFinal - tempInicial;
-            System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
-            System.out.println("Tempo decorrido em segundos = "+ tempDecorrido*Math.pow(10,-9));
-        }else{
-            IFS =  sort(num,0,num.length-1,1);//metodo para Descendente
+            long tempDecorrido = tempFinal - tempInicial;
+            System.out.println("Tempo decorrido em nanosegundos = " + tempDecorrido);
+            System.out.println("Tempo decorrido em segundos = " + tempDecorrido * Math.pow(10, -9));
+        } else {
+            sort(num, 0, num.length - 1, 1);//metodo para Descendente
         }
         return IFS;
- 
     }
-    
-    
-    
-    public static long sort(double[] num, int i, int j) {
-        
-	int IFS = 0;
-	int low = i;
-        int high = j;
-	
-	if (low >= high) {
-		
-		return 0;
-	}
- 
-	int middle = (low + high) / 2;
-		
-	sort(num, low, middle);
-	sort(num, middle + 1, high);
-		
-	int end_low = middle;
-	int start_high = middle + 1;
-		
-	while ((low <= end_low) && (start_high <= high)) {
+
+    public static void sort(double[] array, int i, int j){
+
+        int menor = i;
+        int maior = j;
+        IFS++;
+        if (menor >= maior){
+            return;
+        }
+
+        int meio = (menor + maior) / 2;
+
+        sort(array, menor, meio);
+        sort(array, meio + 1, maior);
+
+        int final_menor = meio;
+        int inicio_maior = meio + 1;
+
+        while ((menor <= final_menor) && (inicio_maior <= maior)){
             IFS++;
-            if (num[low] < num[start_high]) {
-				
-                low++;
-            } 
-            else {
-				
-		double Temp = num[start_high];
-				
-		for (int k = start_high- 1; k >= low; k--) {
-                    IFS++;
-                    num[k+1] = num[k];
-		}
-				
-		num[low] = Temp;
-		low ++;
-		end_low ++;
-		start_high ++;
+            if (array[menor] < array[inicio_maior]) {
+
+                menor++;
+            } else {
+
+                double temp = array[inicio_maior];
+
+                for (int k = inicio_maior - 1; k >= menor; k--){
+
+                    array[k + 1] = array[k];
+                }
+
+                array[menor] = temp;
+                menor++;
+                final_menor++;
+                inicio_maior++;
             }
-	}        
-        return IFS;
+        }
 
     }
-    
-    
-    public static long sort(double[] num, int i, int j,int descentende) {
-                
-	int IFS =0;
-	int low = i;
-	int high = j;
-		
-	if (low >= high) {
-			
-            return IFS;
-	}
- 
-	int middle = (low + high) / 2;
-		
-	sort(num, low, middle,1);
-	sort(num, middle + 1, high,1);
-		
-	int end_low = middle;
-	int start_high = middle + 1;
-		
-	while ((low <= end_low) && (start_high <= high)) {
-		
-            if (num[low] > num[start_high]) {
-		
-		low++;
-            } 
-            else {
-				
-		double Temp = num[start_high];
-				
-		for (int k = start_high - 1; k >= low; k--) {
-                    IFS++;
-                    num[k+1] = num[k];
-		}
-				
-		num[low] = Temp;
-		low ++;
-		end_low ++;
-		start_high ++;
+
+    public static void sort(double[] num, int i, int j, int descentende){
+
+        int menor = i;
+        int maior = j;
+        IFS++;
+        if (menor >= maior) {
+
+            return;
+        }
+
+        int meio = (menor + maior) / 2;
+
+        sort(num, menor, meio, 1);
+        sort(num, meio + 1, maior, 1);
+
+        int final_menor = meio;
+        int inicio_maior = meio + 1;
+
+        while ((menor <= final_menor) && (inicio_maior <= maior)){
+            IFS++;
+            if (num[menor] > num[inicio_maior]) {
+
+                menor++;
+            } else {
+
+                double temp = num[inicio_maior];
+
+                for (int k = inicio_maior - 1; k >= menor; k--){
+
+                    num[k + 1] = num[k];
+                }
+
+                num[menor] = temp;
+                menor++;
+                final_menor++;
+                inicio_maior++;
             }
-	}
-        return IFS;
+        }
+
     }
-    
-    public static void main(String[] args) {
+
+    /*public static void main(String[] args) {
         
-        long IFS = 0;
+        long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
-        System.out.print("Digite o tamanho do Arranjo:[100-1000000]\n");
+        System.out.print("Digite o tamanho do Arranjo:[10-100000000]\n");
         int size = tec.nextInt();
-        if(size<100||size>1000000){
+        if(size<10||size>100000000){
             throw new IllegalArgumentException("Tamanho invalido.");
         }
         double[] array = new double[size];
@@ -128,17 +117,15 @@ public class MergeSort {
             
         switch(anwser){
             case 1:
-                int n;
-                for(int w = 0; w < 10; w++){
-                    n=0;
+                int n = 0;
                 for(int i = array.length; i > 0;i-- ){
                     array[n] = i;
                     n++;
                 }
                 System.out.println("Array preenchido de forma Descendente."); 
                 
-                    IFS = mergeSort(array,false);
-                }
+                returnedIFS = mergeSort(array,false);
+                
                 for(int i = 0; i < array.length;i++ ){
                     s.append(array[i]);
                     if(i!=array.length-1){
@@ -153,7 +140,7 @@ public class MergeSort {
                     array[i] = (i+1);
                 }
                 System.out.println("Array preenchido de forma Ascendente.");
-                IFS = mergeSort(array,true);
+                returnedIFS = mergeSort(array,true);
                 for(int i = 0; i <array.length;i++ ){
                     s.append(array[i]);
                     if(i!=array.length){
@@ -167,7 +154,7 @@ public class MergeSort {
                 System.out.println("Invalido.");       
         }
         System.out.println(s.toString());
-        System.out.println("IFS = "+IFS);   
+        System.out.println("IFS = "+returnedIFS);   
     }
-
+   */
 }

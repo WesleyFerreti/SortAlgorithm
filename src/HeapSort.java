@@ -4,47 +4,47 @@ import java.util.Scanner;
 
 
 public class HeapSort {
-    
-    public static long heapSort(double[] a,boolean desc){
+    public static long IFS = 0;
+    public static long heapSort(double[] array,boolean desc){
         long tempInicial = System.nanoTime();
-        long IFS = 0;
-	int count = a.length;
+        
+	int count = array.length;
 	//first place a in max-heap order
-	heapify(a, count);
+	heapify(array, count);
  
-	int end = count - 1;
+	int fim = count - 1;
         if(!desc){
         
-	while(end > 0){
-            IFS++;
+            while(fim > 0){
+            
 		//swap the root(maximum value) of the heap with the
 		//last element of the heap
-		double tmp = a[end];
-		a[end] = a[0];
-		a[0] = tmp;
+		double tmp = array[fim];
+		array[fim] = array[0];
+		array[0] = tmp;
 		//put the heap back in max-heap order
-		siftDown(a, 0, end - 1);
+		siftDown(array, 0, fim - 1);
 		//decrement the size of the heap so that the previous
 		//max value will stay in its proper place
-		end--;
-	}
+		fim--;
+            }
         }
         else{
-            while(end > 0){
-            IFS++;
+            while(fim > 0){
+            
 		//swap the root(maximum value) of the heap with the
 		//last element of the heap
-		double tmp = a[end];
-		a[end] = a[0];
-		a[0] = tmp;
+		double tmp = array[fim];
+		array[fim] = array[0];
+		array[0] = tmp;
 		//put the heap back in max-heap order
-		siftDown(a, 0, end - 1,1);
+		siftDown(array, 0, fim - 1,1);
 		//decrement the size of the heap so that the previous
 		//max value will stay in its proper place
-		end--;
+		fim--;
             
+            }
         }
-    }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;
         System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
@@ -52,69 +52,76 @@ public class HeapSort {
         return IFS;
     }
  
-public static void heapify(double[] a, int count){
+    public static void heapify(double[] array, int count){
 	//start is assigned the index in a of the last parent node
-	int start = (count - 2) / 2; //binary heap
+	int inicio = (count - 2) / 2; //binary heap
  
-	while(start >= 0){
+	while(inicio >= 0){
 		//sift down the node at index start to the proper place
 		//such that all nodes below the start index are in heap
 		//order
-		siftDown(a, start, count - 1);
-		start--;
+            siftDown(array, inicio, count - 1);
+            inicio--;
 	}
 	//after sifting down the root all nodes/elements are in heap order
-}
+    }
  
-public static void siftDown(double[] a, int start, int end){
+    public static void siftDown(double[] a, int inicio, int fim){
 	//end represents the limit of how far down the heap to sift
-	int root = start;
+	int raiz = inicio;
  
-	while((root * 2 + 1) <= end){      //While the root has at least one child
-		int child = root * 2 + 1;           //root*2+1 points to the left child
+	while((raiz * 2 + 1) <= fim){      //While the root has at least one child
+		int filho = raiz * 2 + 1;           //root*2+1 points to the left child
 		//if the child has a sibling and the child's value is less than its sibling's...
-		if(child + 1 <= end && a[child] < a[child + 1])
-			child = child+1;           //... then point to the right child instead
-		if(a[root] < a[child]){     //out of max-heap order
-			double tmp = a[root];
-			a[root] = a[child];
-			a[child] = tmp;
-			root = child;                //repeat to continue sifting down the child now
-		}else
-			return;
+                IFS++;
+		if(filho + 1 <= fim && a[filho] < a[filho + 1]){
+			filho = filho+1;           //... then point to the right child instead
+                }
+                IFS++;
+		if(a[raiz] < a[filho]){     //out of max-heap order
+			double tmp = a[raiz];
+			a[raiz] = a[filho];
+			a[filho] = tmp;
+			raiz = filho;                //repeat to continue sifting down the child now
+		}else{
+                    return;
+                }
+                    
 	}
-}
+    }
 
-public static void siftDown(double[] a, int start, int end,int descendente){
+    public static void siftDown(double[] array, int inicio, int fim,int descendente){
 	//end represents the limit of how far down the heap to sift
-	int root = start;
+	int root = inicio;
  
-	while((root * 2 + 1) <= end){      //While the root has at least one child
-		int child = root * 2 + 1;           //root*2+1 points to the left child
+	while((root * 2 + 1) <= fim){      //While the root has at least one child
+            int child = root * 2 + 1;           //root*2+1 points to the left child
 		//if the child has a sibling and the child's value is less than its sibling's...
-		if(child + 1 <= end && a[child]  > a[child + 1])
-                    child = child;
+            if(child + 1 <= fim && array[child]  > array[child + 1]){
+                child = child;
 			     //... then point to the right child instead
-		if(a[root] > a[child]){     //out of max-heap order
-			double tmp = a[root];
-			a[root] = a[child];
-			a[child] = tmp;
-			root = child;                //repeat to continue sifting down the child now
-		}else
-			return;
+            }
+            if(array[root] > array[child]){     //out of max-heap order
+		double tmp = array[root];
+		array[root] = array[child];
+		array[child] = tmp;
+		root = child;                //repeat to continue sifting down the child now
+            }else{
+		return;
+            } 
 	}
-}
+    }
 
     
-   /* public static void main(String[] args) {
+  /*  public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
-        long IFS = 0;
-        System.out.print("Digite o tamanho do Arranjo:[100-1000000]\n");
+        long returnedIFS = 0;
+        System.out.print("Digite o tamanho do Arranjo:[10-100000000]\n");
         int size = tec.nextInt();
         
-        if(size<100||size>1000000){
+        if(size<10||size>100000000){
             throw new IllegalArgumentException("Tamanho invalido.");
         }
         double[] array = new double[size];    
@@ -122,17 +129,16 @@ public static void siftDown(double[] a, int start, int end,int descendente){
         int anwser = tec.nextInt();
         switch(anwser){
                 case 1:
-                    int n;
-                    for(int w = 0 ;w<10;w++){
-                        n=0;
+                    int n = 0;
+
                     for(int i = array.length; i > 0;i-- ){
                         array[n] = i;
                         n++;
                     }
                     System.out.println("Array preenchido de forma Descendente.");
                     
-                    IFS = heapSort(array,false);
-                    }
+                    returnedIFS = heapSort(array,false);
+                    
                     for(int i = 0; i < array.length;i++ ){
                         s.append(array[i]);
                         if(i!=array.length-1){
@@ -147,7 +153,7 @@ public static void siftDown(double[] a, int start, int end,int descendente){
                         array[i] = (i+1);
                     }
                     System.out.println("Array preenchido de forma Ascendente.");
-                    IFS = heapSort(array,true);
+                    returnedIFS = heapSort(array,true);
                     for(int i = 0; i <array.length;i++ ){
                         s.append(array[i]);
                         if(i!=array.length){
@@ -165,11 +171,11 @@ public static void siftDown(double[] a, int start, int end,int descendente){
                     
             }
         System.out.println(s.toString());
-        System.out.println("IFS = "+IFS);   
+        System.out.println("IFS = "+returnedIFS);   
         
             
     }
-       
+     
+*/    
       
-     */ 
 }

@@ -1,12 +1,12 @@
 
 import java.util.Scanner;
-//hhhhwewewewewe
+
 
 public class BubbleSort {
-    
+    public static long IFS = 0;
     public static long bubbleSort(double[] array,boolean desc){
         long tempInicial = System.nanoTime();
-        long IFS = 0;
+        
         if(!desc){
                  for (int i = array.length; i >= 1; i--) {  
                     for (int j = 1; j < i; j++) {  
@@ -41,15 +41,15 @@ public class BubbleSort {
     
     
     
-    /*public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
-        long IFS = 0;
-        System.out.print("Digite o tamanho do Arranjo:[100-1000000]\n");
+        long returnedIFS = 0;
+        System.out.print("Digite o tamanho do Arranjo:[10-100000000]\n");
         int size = tec.nextInt();
         
-        if(size<100||size>1000000){
+        if(size<10||size>100000000){
             throw new IllegalArgumentException("Tamanho invalido.");
         }
         double[] array = new double[size];    
@@ -57,17 +57,15 @@ public class BubbleSort {
         int anwser = tec.nextInt();
         switch(anwser){
                 case 1:
-                    int n;
-                    for(int w = 0; w < 10; w++){
-                        n=0;
+                    int n = 0;
                     for(int i = array.length; i > 0;i-- ){
                         array[n] = i;
                         n++;
                     }
                     System.out.println("Array preenchido de forma Descendente.");
                     
-                    IFS = bubbleSort(array,false);
-                    }
+                    returnedIFS = bubbleSort(array,false);
+                    
                     for(int i = 0; i < array.length;i++ ){
                         s.append(array[i]);
                         if(i!=array.length-1){
@@ -82,7 +80,7 @@ public class BubbleSort {
                         array[i] = (i+1);
                     }
                     System.out.println("Array preenchido de forma Ascendente.");
-                    IFS = bubbleSort(array,true);
+                    returnedIFS = bubbleSort(array,true);
                     for(int i = 0; i <array.length;i++ ){
                         s.append(array[i]);
                         if(i!=array.length){
@@ -100,10 +98,9 @@ public class BubbleSort {
                     
             }
         System.out.println(s.toString());
-        System.out.println("IFS = "+IFS);   
+        System.out.println("IFS = "+returnedIFS);   
         
-            
     }
     
-  */ 
+  
 }

@@ -1,9 +1,16 @@
 //Wesley Ferreti    142B22
 //Dennis Quintal    142B22
 /*
-    Sobre o algoritmo
+    O Quicksort adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves de modo que as chaves "menores"
+precedam as chaves "maiores". Em seguida o Quicksort ordena as duas sublistas de chaves menores e maiores recursivamente 
+até que a lista completa se encontre ordenada.
 
+    complexidade pior caso = (n^2)
+    complexidade caso médio = n log(n))
+    complexidade melhor caso = (n log (n))
 
+    Mesmo que o QuickSort trabalhe a (n^2) no pior caso, em cenarios de melhor e média complexidade, o mesmo consegue superar o HeapSort
+em questão de velocidade.
 */
 import java.util.Scanner;
 import java.util.Stack;

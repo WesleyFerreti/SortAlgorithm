@@ -1,8 +1,19 @@
 //Wesley Ferreti    142B22
 //Dennis Quintal    142B22
 /*
-    Sobre o algoritmo
+   O heapsort utiliza uma estrutura de dados chamada heap, para ordenar os elementos à medida que os insere na estrutura.
+Assim, ao final das inserções, os elementos podem ser sucessivamente removidos da raiz da heap, na ordem desejada, 
+lembrando-se sempre de manter a propriedade de max-heap.
+    A heap pode ser representada como uma árvore (uma árvore binária com propriedades especiais[2]) ou como um vetor. 
+Para uma ordenação decrescente, deve ser construída uma heap mínima (o menor elemento fica na raiz). 
+Para uma ordenação crescente, deve ser construído uma heap máxima (o maior elemento fica na raiz).
 
+    complexidade pior caso = (n log (n))
+    complexidade caso médio = (n log (n))
+    complexidade melhor caso = (n log (n))
+    
+    Apesar de oferecer em qualquer cenario uma relação de (n log(n)) o HeapSort acaba perdendo em velocidade para o QuickSort.
+    Alem disso, pode ser considerado um algoritmo instavél.
 
 */
 import java.util.Scanner;

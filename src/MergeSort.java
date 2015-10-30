@@ -1,7 +1,14 @@
 //Wesley Ferreti    142B22
 //Dennis Quintal    142B22
 /*
-    Sobre o algoritmo
+    MergeSort:uma ideia básica consiste em Dividir(o problema em vários sub-problemas e resolver esses sub-problemas através da recursividade)
+e Conquistar(após todos os sub-problemas terem sido resolvidos ocorre a conquista que é a união das resoluções dos sub-problemas).
+Como o algoritmo do Merge Sort usa a recursividade em alguns problemas esta técnica não é muito eficiente devido ao 
+alto consumo de memória e tempo de execução.
+
+    complexidade pior caso = (n^2)
+    complexidade caso médio  = (n log (n))
+    complexidade melhor casO = (n log (n))
 
 
 */

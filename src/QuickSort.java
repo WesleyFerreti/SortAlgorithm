@@ -4,6 +4,8 @@
     O Quicksort adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves de modo que as chaves "menores"
 precedam as chaves "maiores". Em seguida o Quicksort ordena as duas sublistas de chaves menores e maiores recursivamente 
 até que a lista completa se encontre ordenada.
+    Optei por fazer a implementação que não usa recursividade. Depois de algum tempo de pesquisa percebi que a utilização de uma PILHA é 
+necessária para fazer a implementação. 
 
     complexidade pior caso = (n^2)
     complexidade caso médio = n log(n))
@@ -19,7 +21,7 @@ public class QuickSort{
     public static long IFS = 0;
     public static long quickSort(double[] array,boolean desc){
 
-        Stack<Integer> stack = new Stack<>();//stack == Pilha
+        Stack<Integer> stack = new Stack<>();//Pilha
         stack.push(0);
         stack.push(array.length);
         long tempInicial = System.nanoTime();    

@@ -77,7 +77,7 @@ public class MergeSort {
         int menor = i;
         int maior = j;
         IFS++;
-        if (menor >= maior) {
+        if (menor >= maior){
 
             return;
         }

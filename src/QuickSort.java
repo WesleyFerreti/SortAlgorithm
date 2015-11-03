@@ -74,7 +74,7 @@ public class QuickSort{
         return IFS;   
     }
 
-    private static int particiona(double[] array, int pivot, int inicio, int fim) {//Ascendente
+    private static int particiona(double[] array, int pivot, int inicio, int fim){//Ascendente
         int l = inicio;
         int h = fim - 2;
         double piv = array[pivot];
@@ -126,7 +126,7 @@ public class QuickSort{
         array[j] = temp;
     }
         
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -183,5 +183,5 @@ public class QuickSort{
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);      
     }
-     
+   */
 }

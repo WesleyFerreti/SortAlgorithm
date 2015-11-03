@@ -14,7 +14,8 @@ Para uma ordenação crescente, deve ser construído uma heap máxima (o maior e
     
     Apesar de oferecer em qualquer cenario uma relação de (n log(n)) o HeapSort acaba perdendo em velocidade para o QuickSort.
     Alem disso, pode ser considerado um algoritmo instavél.
-
+    
+    Descendente ainda não funcionando
 */
 import java.util.Scanner;
 

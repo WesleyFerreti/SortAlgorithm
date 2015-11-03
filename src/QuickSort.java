@@ -144,8 +144,7 @@ public class QuickSort{
                 case 1:       
                     for(int i = 0; i < array.length;i++){
                         array[i] = array.length-i;    
-                    }
-                    Arrays.toString(array);
+                    }                   
                     System.out.println("Array preenchido de forma Descendente.");
                     
                     returnedIFS = quickSort(array,false);

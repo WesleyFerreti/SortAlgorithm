@@ -62,10 +62,8 @@ public class BubbleSort {
         int anwser = tec.nextInt();
         switch(anwser){
                 case 1:
-                    int n = 0;
-                    for(int i = array.length; i > 0;i-- ){
-                        array[n] = i;
-                        n++;
+                    for(int i = 0; i < array.length;i++){
+                        array[i] = array.length-i;
                     }
                     System.out.println("Array preenchido de forma Descendente.");
                     

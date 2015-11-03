@@ -16,6 +16,7 @@ em questão de velocidade.
 */
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.Arrays;
 
 public class QuickSort{
     public static long IFS = 0;
@@ -125,7 +126,7 @@ public class QuickSort{
         array[j] = temp;
     }
         
-  /*  public static void main(String[] args) {
+    public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -140,12 +141,11 @@ public class QuickSort{
         System.out.print("\t1:Ascendente\n\t2:Descendente\nDigite:");
         int anwser = tec.nextInt();
         switch(anwser){
-                case 1:
-                    int n = 0;
-                    for(int i = array.length; i > 0;i-- ){
-                        array[n] = i;
-                        n++;
+                case 1:       
+                    for(int i = 0; i < array.length;i++){
+                        array[i] = array.length-i;    
                     }
+                    Arrays.toString(array);
                     System.out.println("Array preenchido de forma Descendente.");
                     
                     returnedIFS = quickSort(array,false);
@@ -184,5 +184,5 @@ public class QuickSort{
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);      
     }
-     */
+     
 }

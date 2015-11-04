@@ -117,7 +117,7 @@ public class HeapSort {
 	}
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -175,5 +175,5 @@ public class HeapSort {
             
     }
      
-      
+    */  
 }

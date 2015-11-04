@@ -14,8 +14,7 @@ Para uma ordenação crescente, deve ser construído uma heap máxima (o maior e
     
     Apesar de oferecer em qualquer cenario uma relação de (n log(n)) o HeapSort acaba perdendo em velocidade para o QuickSort.
     Alem disso, pode ser considerado um algoritmo instavél.
-    
-    Descendente ainda não funcionando
+   
 */
 import java.util.Scanner;
 
@@ -26,11 +25,11 @@ public class HeapSort {
         
 	int count = array.length;
 	//first place a in max-heap order
-	heapify(array, count);
+	
  
 	int fim = count - 1;
         if(!desc){
-        
+            heapify(array, count);
             while(fim > 0){
 
 		double tmp = array[fim];
@@ -41,6 +40,7 @@ public class HeapSort {
             }
         }
         else{
+            heapify(array, count,1);
             while(fim > 0){ 
                 
 		double tmp = array[fim];
@@ -67,7 +67,15 @@ public class HeapSort {
             inicio--;
 	}
     }
+    public static void heapify(double[] array, int count, int descendente){
+	
+	int inicio = (count - 2) / 2;
  
+	while(inicio >= 0){	
+            siftDown(array, inicio, count - 1,1);
+            inicio--;
+	}
+    }
     public static void siftDown(double[] a, int inicio, int fim){
 	
 	int raiz = inicio;
@@ -90,30 +98,33 @@ public class HeapSort {
                     
 	}
     }
-
-    public static void siftDown(double[] array, int inicio, int fim,int descendente){
+    public static void siftDown(double[] a, int inicio, int fim, int descendente){
 	
-	int root = inicio;
+	int raiz = inicio;
  
-	while((root * 2 + 1) <= fim){     
-            int child = root * 2 + 1;   
-	
-            if(child + 1 <= fim && array[child]  > array[child + 1]){
-                child = child;
+	while((raiz * 2 + 1) <= fim){     
+            int filho = raiz * 2 + 1;           
+            IFS++;
+            if(filho + 1 <= fim && a[filho] > a[filho + 1]){
+		filho = filho+1; 
             }
-            if(array[root] > array[child]){  
-		double tmp = array[root];
-		array[root] = array[child];
-		array[child] = tmp;
-		root = child;         
+            IFS++;
+            if(a[raiz] > a[filho]){
+		double tmp = a[raiz];
+		a[raiz] = a[filho];
+		a[filho] = tmp;
+		raiz = filho;       
             }else{
-		return;
-            } 
+                return;
+            }
+                    
 	}
     }
 
     
-  /*  public static void main(String[] args) {
+
+    
+    public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -173,6 +184,5 @@ public class HeapSort {
             
     }
      
-  */  
       
 }

@@ -125,7 +125,7 @@ public class QuickSort{
         array[j] = temp;
     }
         
-   /* public static void main(String[] args) {
+    public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -140,47 +140,43 @@ public class QuickSort{
         System.out.print("\t1:Ascendente\n\t2:Descendente\nDigite:");
         int anwser = tec.nextInt();
         switch(anwser){
-                case 1:       
-                    for(int i = 0; i < array.length;i++){
-                        array[i] = array.length-i;    
-                    }                   
-                    System.out.println("Array preenchido de forma Descendente.");
+            case 1:       
+                for(int i = 0; i < array.length;i++){
+                    array[i] = array.length-i;    
+                }                   
+                System.out.println("Array preenchido de forma Descendente.");
+                 
+                returnedIFS = quickSort(array,false);
                     
-                    returnedIFS = quickSort(array,false);
-                    
-                    for(int i = 0; i < array.length;i++ ){
-                        s.append(array[i]);
-                        if(i!=array.length-1){
-                            s.append(" ");
-                        }
+                for(int i = 0; i < array.length;i++ ){
+                    s.append(array[i]);
+                    if(i!=array.length-1){
+                        s.append(" ");
                     }
-                    s.append("}");
-                    System.out.println("Array ordenado na forma Ascendente:");
-                    break;
-                case 2:   
-                    for(int i = 0; i < array.length;i++){
-                        array[i] = (i+1);
+                }
+                s.append("}");
+                System.out.println("Array ordenado na forma Ascendente:");
+                break;
+            case 2:   
+                for(int i = 0; i < array.length;i++){
+                    array[i] = (i+1);
+                }
+                System.out.println("Array preenchido de forma Ascendente.");
+                returnedIFS = quickSort(array,true);
+                for(int i = 0; i <array.length;i++ ){
+                    s.append(array[i]);
+                    if(i!=array.length){
+                        s.append(" ");
                     }
-                    System.out.println("Array preenchido de forma Ascendente.");
-                    returnedIFS = quickSort(array,true);
-                    for(int i = 0; i <array.length;i++ ){
-                        s.append(array[i]);
-                        if(i!=array.length){
-                            s.append(" ");
-                        }
-                    }
-                    s.append("}");
-                    System.out.println("Array ordenado na forma Descendente:");
-                    
-                    
-                    break;
-                    default:
-                        System.out.println("Invalido.");
-                    
-                    
-            }
+                }
+                s.append("}");
+                System.out.println("Array ordenado na forma Descendente:");
+                break;
+            default:
+                System.out.println("Invalido.");     
+        }
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);      
     }
-   */
+   
 }

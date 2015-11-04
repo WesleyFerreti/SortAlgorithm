@@ -118,7 +118,7 @@ public class MergeSort {
     }
 
    
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
         long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);
@@ -171,6 +171,6 @@ public class MergeSort {
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);   
     }
- 
+ */
 }
 

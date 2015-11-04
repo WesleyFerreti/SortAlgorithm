@@ -16,7 +16,6 @@ em questão de velocidade.
 */
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.Arrays;
 
 public class QuickSort{
     public static long IFS = 0;

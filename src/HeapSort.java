@@ -24,9 +24,6 @@ public class HeapSort {
         long tempInicial = System.nanoTime();
         
 	int count = array.length;
-	//first place a in max-heap order
-	
- 
 	int fim = count - 1;
         if(!desc){
             heapify(array, count);
@@ -116,14 +113,10 @@ public class HeapSort {
 		raiz = filho;       
             }else{
                 return;
-            }
-                    
+            }           
 	}
     }
 
-    
-
-    
     public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
@@ -174,9 +167,7 @@ public class HeapSort {
                     
                     break;
                     default:
-                        System.out.println("Invalido.");
-                    
-                    
+                        System.out.println("Invalido.");        
             }
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);   

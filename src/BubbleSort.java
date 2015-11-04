@@ -46,7 +46,7 @@ public class BubbleSort {
         return IFS;
     }
     
-    public static void main(String[] args) throws Exception {
+    /*public static void main(String[] args) throws Exception {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -103,6 +103,6 @@ public class BubbleSort {
         System.out.println("IFS = "+returnedIFS);   
         
     }
-    
+    */
   
 }

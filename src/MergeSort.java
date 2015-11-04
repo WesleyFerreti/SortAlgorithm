@@ -32,88 +32,72 @@ public class MergeSort {
         return IFS;
     }
 
-    public static void sort(double[] array, int i, int j){
+    public static void sort(double[] array, int inicio, int fim) {
+	if (fim <= inicio) {
+		return;
+	}
+	int meio = (inicio + fim) / 2;
+	sort(array, inicio, meio);
+	sort(array, meio + 1, fim);
+	double[] A = new double[meio - inicio + 1];
+	double[] B = new double[fim - meio];
+	for (int i = 0; i <= meio - inicio; i++) {
+		A[i] = array[inicio + i];
+	}
+	for (int i = 0; i <= fim - meio - 1; i++) {
+		B[i] = array[meio + 1 + i];
+	}
+	int i = 0;
+	int j = 0;
+	for (int k = inicio; k <= fim; k++) {
+		if (i < A.length && j < B.length) {
+			if (A[i] < B[j]) {
+				array[k] = A[i++];
+			} else {
+				array[k] = B[j++];
+			}
+		} else if (i < A.length) {
+			array[k] = A[i++];
+		} else if (j < B.length) {
+			array[k] = B[j++];
+		}
+	}
+    }
 
-        int menor = i;
-        int maior = j;
-        IFS++;
-        if (menor >= maior){
-            return;
-        }
-
-        int meio = (menor + maior) / 2;
-
-        sort(array, menor, meio);
-        sort(array, meio + 1, maior);
-
-        int final_menor = meio;
-        int inicio_maior = meio + 1;
-
-        while ((menor <= final_menor) && (inicio_maior <= maior)){
-            IFS++;
-            if (array[menor] < array[inicio_maior]) {
-
-                menor++;
-            } else {
-
-                double temp = array[inicio_maior];
-
-                for (int k = inicio_maior - 1; k >= menor; k--){
-
-                    array[k + 1] = array[k];
-                }
-
-                array[menor] = temp;
-                menor++;
-                final_menor++;
-                inicio_maior++;
-            }
-        }
+    public static void sort(double[] array, int inicio, int fim,int Descendente) {
+	if (fim <= inicio) {
+		return;
+	}
+	int meio = (inicio + fim) / 2;
+	sort(array, inicio, meio);
+	sort(array, meio + 1, fim);
+	double[] A = new double[meio - inicio + 1];
+	double[] B = new double[fim - meio];
+	for (int i = 0; i <= meio - inicio; i++) {
+		A[i] = array[inicio + i];
+	}
+	for (int i = 0; i <= fim - meio - 1; i++) {
+		B[i] = array[meio + 1 + i];
+	}
+	int i = 0;
+	int j = 0;
+	for (int k = inicio; k <= fim; k++) {
+		if (i > A.length && j > B.length) {
+			if (A[i] > B[j]) {
+				array[k] = A[i++];
+			} else {
+				array[k] = B[j++];
+			}
+		} else if (i > A.length) {
+			array[k] = A[i++];
+		} else if (j > B.length) {
+			array[k] = B[j++];
+		}
+	}
 
     }
 
-    public static void sort(double[] num, int i, int j, int descentende){
-
-        int menor = i;
-        int maior = j;
-        IFS++;
-        if (menor >= maior){
-
-            return;
-        }
-
-        int meio = (menor + maior) / 2;
-
-        sort(num, menor, meio, 1);
-        sort(num, meio + 1, maior, 1);
-
-        int final_menor = meio;
-        int inicio_maior = meio + 1;
-
-        while ((menor <= final_menor) && (inicio_maior <= maior)){
-            IFS++;
-            if (num[menor] > num[inicio_maior]) {
-
-                menor++;
-            } else {
-
-                double temp = num[inicio_maior];
-
-                for (int k = inicio_maior - 1; k >= menor; k--){
-
-                    num[k + 1] = num[k];
-                }
-
-                num[menor] = temp;
-                menor++;
-                final_menor++;
-                inicio_maior++;
-            }
-        }
-
-    }
-
-   /* public static void main(String[] args) {
+    public static void main(String[] args) {
         
         long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);
@@ -166,5 +150,6 @@ public class MergeSort {
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);   
     }
-   */
+   
 }
+

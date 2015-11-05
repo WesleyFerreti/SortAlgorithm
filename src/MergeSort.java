@@ -10,7 +10,6 @@ alto consumo de memória.
     complexidade caso médio  = (n log (n))
     complexidade melhor casO = (n log (n))
 
-
 */
 import java.util.Scanner;
 
@@ -32,7 +31,7 @@ public class MergeSort {
         return IFS;
     }
 
-    public static void sort(double[] array, int inicio, int fim) {
+    public static void sort(double[] array, int inicio, int fim){//Ascendente
         IFS++;
 	if (fim <= inicio) {
 		return;
@@ -74,7 +73,7 @@ public class MergeSort {
             }
         }
     }
-    public static void sort(double[] array, int inicio, int fim, int descendente) {
+    public static void sort(double[] array, int inicio, int fim, int descendente){//Descendente
         IFS++;
 	if (fim <= inicio) {
 		return;
@@ -118,7 +117,7 @@ public class MergeSort {
     }
 
    
-   /* public static void main(String[] args) {
+  /* public static void main(String[] args) {
         
         long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);

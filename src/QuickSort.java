@@ -12,7 +12,7 @@ necessária para fazer a implementação.
     complexidade melhor caso = (n log (n))
 
     Mesmo que o QuickSort trabalhe a (n^2) no pior caso, em cenarios de melhor e média complexidade, o mesmo consegue superar o HeapSort
-em questão de velocidade.
+em questão de velocidade para grandes conjuntos de dados.
 */
 import java.util.Scanner;
 import java.util.Stack;
@@ -25,8 +25,7 @@ public class QuickSort{
         stack.push(0);
         stack.push(array.length);
         long tempInicial = System.nanoTime();    
-        if(!desc){ 
-            
+        if(!desc){      
             while (!stack.isEmpty()) {
         
                 int fim = stack.pop();
@@ -125,7 +124,7 @@ public class QuickSort{
         array[j] = temp;
     }
         
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -178,5 +177,5 @@ public class QuickSort{
         System.out.println(s.toString());
         System.out.println("IFS = "+returnedIFS);      
     }
-   
+   */
 }

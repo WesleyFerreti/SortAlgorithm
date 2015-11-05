@@ -1,12 +1,14 @@
 //Wesley Ferreti    142B22
 //Dennis Quintal    142B22
 /*
-    O bubble sort, ou ordenação por flutuação (literalmente "por bolha"), é um algoritmo de ordenação dos mais simples.
-A ideia é percorrer o vector diversas vezes, a cada passagem fazendo flutuar para o topo o maior elemento da sequência. 
+    O BubbleSort, ou ordenação por flutuação (literalmente "por bolha"), é um algoritmo de ordenação dos mais simples.
+A ideia é percorrer o vetor diversas vezes, a cada passagem fazendo flutuar para o topo o maior elemento da sequência. 
 
     complexidade pior caso  = (n^2)
     complexidade caso médio  = (n^2)
     complexidade melhor casO = (n)
+
+    Recomentado utilizar para Arrays de no maximo 1000 elementos.
 
 */
 import java.util.Scanner;
@@ -15,7 +17,7 @@ public class BubbleSort {
     public static long IFS = 0;
     public static long bubbleSort(double[] array,boolean desc){
         long tempInicial = System.nanoTime();
-        if(!desc){
+        if(!desc){//Ascendente
                  for (int i = array.length; i >= 1; i--) {  
                     for (int j = 1; j < i; j++) {  
                         IFS++;
@@ -27,7 +29,7 @@ public class BubbleSort {
                     }         
                 }  
         }
-        else{
+        else{//Descendente
             for (int i = array.length; i >= 1; i--) {  
                     for (int j = 1; j < i; j++) {  
                         IFS++;
@@ -46,7 +48,7 @@ public class BubbleSort {
         return IFS;
     }
     
-    /*public static void main(String[] args){
+   /* public static void main(String[] args){
         
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
@@ -103,6 +105,6 @@ public class BubbleSort {
         System.out.println("IFS = "+returnedIFS);   
         
     }
-    */
-  
+    
+  */
 }

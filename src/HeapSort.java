@@ -1,8 +1,8 @@
 //Wesley Ferreti    142B22
 //Dennis Quintal    142B22
 /*
-   O heapsort utiliza uma estrutura de dados chamada heap, para ordenar os elementos à medida que os insere na estrutura.
-Assim, ao final das inserções, os elementos podem ser sucessivamente removidos da raiz da heap, na ordem desejada, 
+   O HeapSort utiliza uma estrutura de dados chamada heap, para ordenar os elementos à medida que os insere na estrutura.
+   Assim, ao final das inserções, os elementos podem ser sucessivamente removidos da raiz da heap, na ordem desejada, 
 lembrando-se sempre de manter a propriedade de max-heap.
     A heap pode ser representada como uma árvore (uma árvore binária com propriedades especiais[2]) ou como um vetor. 
 Para uma ordenação decrescente, deve ser construída uma heap mínima (o menor elemento fica na raiz). 
@@ -12,7 +12,8 @@ Para uma ordenação crescente, deve ser construído uma heap máxima (o maior e
     complexidade caso médio = (n log (n))
     complexidade melhor caso = (n log (n))
     
-    Apesar de oferecer em qualquer cenario uma relação de (n log(n)) o HeapSort acaba perdendo em velocidade para o QuickSort.
+    Apesar de oferecer em qualquer cenário uma relação de (n log(n)) o HeapSort acaba perdendo em velocidade
+para o QuickSort a medida que o tamanho do array aumenta.
     Alem disso, pode ser considerado um algoritmo instavél.
    
 */
@@ -55,7 +56,7 @@ public class HeapSort {
         return IFS;
     }
  
-    public static void heapify(double[] array, int count){
+    public static void heapify(double[] array, int count){//Ascendente
 	
 	int inicio = (count - 2) / 2;
  
@@ -64,7 +65,7 @@ public class HeapSort {
             inicio--;
 	}
     }
-    public static void heapify(double[] array, int count, int descendente){
+    public static void heapify(double[] array, int count, int descendente){//Descendente
 	
 	int inicio = (count - 2) / 2;
  
@@ -73,7 +74,7 @@ public class HeapSort {
             inicio--;
 	}
     }
-    public static void siftDown(double[] a, int inicio, int fim){
+    public static void siftDown(double[] a, int inicio, int fim){//Ascendente
 	
 	int raiz = inicio;
  
@@ -95,7 +96,7 @@ public class HeapSort {
                     
 	}
     }
-    public static void siftDown(double[] a, int inicio, int fim, int descendente){
+    public static void siftDown(double[] a, int inicio, int fim, int descendente){//Descendente
 	
 	int raiz = inicio;
  
@@ -175,5 +176,5 @@ public class HeapSort {
             
     }
      
-    */  
+     */ 
 }

@@ -1,5 +1,5 @@
 //Wesley Ferreti    142B22
-//Dennis Quintal    142B22
+//Dennis Quintal    142B32
 /*
    O HeapSort utiliza uma estrutura de dados chamada heap, para ordenar os elementos à medida que os insere na estrutura.
    Assim, ao final das inserções, os elementos podem ser sucessivamente removidos da raiz da heap, na ordem desejada, 

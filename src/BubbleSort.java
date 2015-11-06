@@ -1,5 +1,5 @@
 //Wesley Ferreti    142B22
-//Dennis Quintal    142B22
+//Dennis Quintal    142B32
 /*
     O BubbleSort, ou ordenação por flutuação (literalmente "por bolha"), é um algoritmo de ordenação dos mais simples.
 A ideia é percorrer o vetor diversas vezes, a cada passagem fazendo flutuar para o topo o maior elemento da sequência. 

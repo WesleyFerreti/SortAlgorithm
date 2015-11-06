@@ -7,3 +7,5 @@ MergeSort
 BubbleSort
 
 Descomente o método main para testar os algoritmos.
+
+*Planilha para visualização de desempenho dos algoritmos de ordenação.

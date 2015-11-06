@@ -26,8 +26,8 @@ public class MergeSort {
         }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;
-        System.out.println("Tempo decorrido em nanosegundos = " + tempDecorrido);
-        System.out.println("Tempo decorrido em segundos = " + tempDecorrido * Math.pow(10, -9));
+        System.out.println("Tempo decorrido em nanosegundos para ordenação: "+ tempDecorrido);
+        System.out.println("Tempo decorrido em segundos para ordenação: "+ tempDecorrido*Math.pow(10,-9));
         return IFS;
     }
 

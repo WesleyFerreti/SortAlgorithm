@@ -19,7 +19,7 @@ import java.util.Stack;
 
 public class QuickSort{
     public static long IFS = 0;
-    public static long quickSort(double[] array,boolean desc){
+    public static long quickSort(double[] array, boolean desc){
 
         Stack<Integer> stack = new Stack<>();//Pilha
         stack.push(0);
@@ -34,10 +34,10 @@ public class QuickSort{
                 if (fim - inicio < 2){
                     continue;
                 }
-                int pivot = inicio + ((fim-inicio)/2);
-                pivot = particiona(array,pivot,inicio,fim);
+                int pivot = inicio + ((fim - inicio) / 2);
+                pivot = particiona(array, pivot, inicio, fim);
 
-                stack.push(pivot+1);
+                stack.push(pivot + 1);
                 stack.push(fim);
 
                 stack.push(inicio);
@@ -55,10 +55,10 @@ public class QuickSort{
                 if (fim - inicio < 2){
                     continue;
                 }
-                int pivot = inicio + ((fim-inicio)/2);
-                pivot = particiona(array,pivot,inicio,fim,1);
+                int pivot = inicio + ((fim - inicio) / 2);
+                pivot = particiona(array, pivot, inicio, fim, 1);
 
-                stack.push(pivot+1);
+                stack.push(pivot + 1);
                 stack.push(fim);
 
                 stack.push(inicio);
@@ -67,8 +67,8 @@ public class QuickSort{
         }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;  
-        System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
-        System.out.println("Tempo decorrido em segundos = "+ tempDecorrido*Math.pow(10,-9));
+        System.out.println("Tempo decorrido em nanosegundos para ordenação: "+ tempDecorrido);
+        System.out.println("Tempo decorrido em segundos para ordenação: "+ tempDecorrido*Math.pow(10, -9));
         return IFS;   
     }
 
@@ -76,7 +76,7 @@ public class QuickSort{
         int l = inicio;
         int h = fim - 2;
         double piv = array[pivot];
-        troca(array,pivot,fim-1);
+        troca(array, pivot, fim-1);
 
         while (l < h) {
             IFS++;
@@ -85,7 +85,7 @@ public class QuickSort{
             }else if (array[h] >= piv){ 
                 h--;
             }else{ 
-                troca(array,l,h);
+                troca(array, l, h);
             }
         }
         int idx = h;
@@ -93,14 +93,14 @@ public class QuickSort{
         if (array[h] < piv){
             idx++;
         }
-        troca(array,fim-1,idx);
+        troca(array, fim-1, idx);
         return idx;
     }
     private static int particiona(double[] array, int pivot, int inicio, int fim, int descendente) {//Descendente
         int l = inicio;
         int h = fim - 2;
         double piv = array[pivot];
-        troca(array,pivot,fim-1);
+        troca(array, pivot, fim-1);
 
         while (l < h) {
             IFS++;
@@ -109,13 +109,13 @@ public class QuickSort{
             } else if (array[h] <= piv) { 
                 h--;
             } else { 
-                troca(array,l,h);
+                troca(array, l, h);
             }
         }
         int idx = h;
         IFS++;
         if (array[h] > piv) idx++;
-            troca(array,fim-1,idx);
+            troca(array, fim-1, idx);
             return idx;
     }
     private static void troca(double[] array, int i, int j) { 

@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 public class HeapSort {
     public static long IFS = 0;
-    public static long heapSort(double[] array,boolean desc){
+    public static long heapSort(double[] array, boolean desc){
         long tempInicial = System.nanoTime();
         
 	int count = array.length;
@@ -44,15 +44,15 @@ public class HeapSort {
 		double tmp = array[fim];
 		array[fim] = array[0];
 		array[0] = tmp;
-		siftDown(array, 0, fim - 1,1);
+		siftDown(array, 0, fim - 1, 1);
 		fim--;
             
             }
         }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;
-        System.out.println("Tempo decorrido em nanosegundos = "+ tempDecorrido);
-        System.out.println("Tempo decorrido em segundos = "+ tempDecorrido*Math.pow(10,-9));
+        System.out.println("Tempo decorrido em nanosegundos para ordenação: "+ tempDecorrido);
+        System.out.println("Tempo decorrido em segundos para ordenação: "+ tempDecorrido*Math.pow(10,-9));
         return IFS;
     }
  
@@ -70,7 +70,7 @@ public class HeapSort {
 	int inicio = (count - 2) / 2;
  
 	while(inicio >= 0){	
-            siftDown(array, inicio, count - 1,1);
+            siftDown(array, inicio, count - 1, 1);
             inicio--;
 	}
     }

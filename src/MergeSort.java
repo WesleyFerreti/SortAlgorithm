@@ -1,5 +1,5 @@
 //Wesley Ferreti    142B22
-//Dennis Quintal    142B22
+//Dennis Quintal    142B32
 /*
     MergeSort:uma ideia básica consiste em Dividir(o problema em vários sub-problemas e resolver esses sub-problemas através da recursividade)
 e Conquistar(após todos os sub-problemas terem sido resolvidos ocorre a conquista que é a união das resoluções dos sub-problemas).

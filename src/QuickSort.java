@@ -1,5 +1,5 @@
 //Wesley Ferreti    142B22
-//Dennis Quintal    142B22
+//Dennis Quintal    142B32
 /*
     O Quicksort adota a estratégia de divisão e conquista. A estratégia consiste em rearranjar as chaves de modo que as chaves "menores"
 precedam as chaves "maiores". Em seguida o Quicksort ordena as duas sublistas de chaves menores e maiores recursivamente 

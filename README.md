@@ -1,7 +1,7 @@
 # SortAlgorithm
 Algoritmos para ordenação de conjuntos numéricos (Ascendente e Descendente) 
 
-QuickSort
+QuickSort(Not Recursive)
 HeapSort
 MergeSort
 BubbleSort

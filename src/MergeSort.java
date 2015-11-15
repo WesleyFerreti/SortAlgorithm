@@ -26,89 +26,46 @@ public class MergeSort {
         }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;
-        System.out.println("Tempo decorrido em nanosegundos para ordenação: "+ tempDecorrido);
-        System.out.println("Tempo decorrido em segundos para ordenação: "+ tempDecorrido*Math.pow(10,-9));
+        System.out.println("Tempo decorrido em nanosegundos para ordenação: " + tempDecorrido);
+        System.out.println("Tempo decorrido em segundos para ordenação: " + tempDecorrido * Math.pow(10, -9));
         return IFS;
     }
 
-    public static void sort(double[] array, int inicio, int fim){//Ascendente
+    public static void sort(double[] array, int inicio, int fim) {//Ascendente
         IFS++;
-	if (fim <= inicio) {
-		return;
-	}
-	int meio = (inicio + fim) / 2;
-	sort(array, inicio, meio);
-	sort(array, meio + 1, fim);
-	double[] A = new double[meio - inicio + 1];
-	double[] B = new double[fim - meio];
-	for (int i = 0; i <= meio - inicio; i++) {
-		A[i] = array[inicio + i];
-	}
-	for (int i = 0; i <= fim - meio - 1; i++) {
-		B[i] = array[meio + 1 + i];
-	}
-	int i = 0;
-	int j = 0;
-	for (int k = inicio; k <= fim; k++) {
-                IFS++;
-		if (i < A.length && j < B.length) {
-                        IFS++;
-			if (A[i] < B[j]) {
-				array[k] = A[i++];
-			} else {
-				array[k] = B[j++];
-			}
-                
-		}else{
-                    IFS++;
-                    if (i < A.length) {
-			array[k] = A[i++];
-                    }
-                    else{
-                        IFS++;
-                        if (j < B.length) {
-                        array[k] = B[j++];
-                    }
-                }
-            }
+        if (fim <= inicio) {
+            return;
         }
-    }
-    public static void sort(double[] array, int inicio, int fim, int descendente){//Descendente
-        IFS++;
-	if (fim <= inicio) {
-		return;
-	}
-	int meio = (inicio + fim) / 2;
-	sort(array, inicio, meio,1);
-	sort(array, meio + 1, fim,1);
-	double[] A = new double[meio - inicio + 1];
-	double[] B = new double[fim - meio];
-	for (int i = 0; i <= meio - inicio; i++) {
-		A[i] = array[inicio + i];
-	}
-	for (int i = 0; i <= fim - meio - 1; i++) {
-		B[i] = array[meio + 1 + i];
-	}
-	int i = 0;
-	int j = 0;
-	for (int k = inicio; k <= fim; k++){
+        int meio = (inicio + fim) / 2;
+        sort(array, inicio, meio);
+        sort(array, meio + 1, fim);
+        double[] A = new double[meio - inicio + 1];
+        double[] B = new double[fim - meio];
+        for (int i = 0; i <= meio - inicio; i++) {
+            A[i] = array[inicio + i];
+        }
+        for (int i = 0; i <= fim - meio - 1; i++) {
+            B[i] = array[meio + 1 + i];
+        }
+        int i = 0;
+        int j = 0;
+        for (int k = inicio; k <= fim; k++) {
+            IFS++;
+            if (i < A.length && j < B.length) {
                 IFS++;
-		if (i < A.length && j < B.length) {
-                        IFS++;
-			if (A[i] > B[j]){
-				array[k] = A[i++];
-			} else {
-				array[k] = B[j++];
-			}
-                
-		}else{
+                if (A[i] < B[j]) {
+                    array[k] = A[i++];
+                } else {
+                    array[k] = B[j++];
+                }
+
+            } else {
+                IFS++;
+                if (i < A.length) {
+                    array[k] = A[i++];
+                } else {
                     IFS++;
-                    if (i < A.length) {
-			array[k] = A[i++];
-                    }
-                    else{
-                        IFS++;
-                        if (j < B.length) {
+                    if (j < B.length) {
                         array[k] = B[j++];
                     }
                 }
@@ -116,60 +73,101 @@ public class MergeSort {
         }
     }
 
-   
-  /* public static void main(String[] args) {
-        
+    public static void sort(double[] array, int inicio, int fim, int descendente) {//Descendente
+        IFS++;
+        if (fim <= inicio) {
+            return;
+        }
+        int meio = (inicio + fim) / 2;
+        sort(array, inicio, meio, 1);
+        sort(array, meio + 1, fim, 1);
+        double[] A = new double[meio - inicio + 1];
+        double[] B = new double[fim - meio];
+        for (int i = 0; i <= meio - inicio; i++) {
+            A[i] = array[inicio + i];
+        }
+        for (int i = 0; i <= fim - meio - 1; i++) {
+            B[i] = array[meio + 1 + i];
+        }
+        int i = 0;
+        int j = 0;
+        for (int k = inicio; k <= fim; k++) {
+            IFS++;
+            if (i < A.length && j < B.length) {
+                IFS++;
+                if (A[i] > B[j]) {
+                    array[k] = A[i++];
+                } else {
+                    array[k] = B[j++];
+                }
+
+            } else {
+                IFS++;
+                if (i < A.length) {
+                    array[k] = A[i++];
+                } else {
+                    IFS++;
+                    if (j < B.length) {
+                        array[k] = B[j++];
+                    }
+                }
+            }
+        }
+    }
+
+   /* public static void main(String[] args) {
+
         long returnedIFS = 0;
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
         System.out.print("Digite o tamanho do Arranjo:[10-100000000]\n");
         int size = tec.nextInt();
-        if(size<10||size>100000000){
+        if (size < 10 || size > 100000000) {
             throw new IllegalArgumentException("Tamanho invalido.");
         }
         double[] array = new double[size];
         System.out.print("\t1:Ascendente\n\t2:Descendente\nDigite:");
         int anwser = tec.nextInt();
-            
-        switch(anwser){
+
+        switch (anwser) {
             case 1:
-                for(int i = 0; i < array.length;i++){
-                        array[i] = array.length-i;        
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = array.length - i;
                 }
-                System.out.println("Array preenchido de forma Descendente."); 
-                
-                returnedIFS = mergeSort(array,false);
-                
-                for(int i = 0; i < array.length;i++ ){
+                System.out.println("Array preenchido de forma Descendente.");
+
+                returnedIFS = mergeSort(array, false);
+
+                for (int i = 0; i < array.length; i++) {
                     s.append(array[i]);
-                    if(i!=array.length-1){
+                    if (i != array.length - 1) {
                         s.append(" ");
                     }
                 }
                 s.append("}");
                 System.out.println("Array ordenado na forma Ascendente:");
                 break;
-            case 2:   
-                for(int i = 0; i < array.length;i++){
-                    array[i] = (i+1);
+            case 2:
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = (i + 1);
                 }
                 System.out.println("Array preenchido de forma Ascendente.");
-                returnedIFS = mergeSort(array,true);
-                for(int i = 0; i <array.length;i++ ){
+                returnedIFS = mergeSort(array, true);
+                for (int i = 0; i < array.length; i++) {
                     s.append(array[i]);
-                    if(i!=array.length){
+                    if (i != array.length) {
                         s.append(" ");
                     }
                 }
                 s.append("}");
-                System.out.println("Array ordenado na forma Descendente:");       
+                System.out.println("Array ordenado na forma Descendente:");
                 break;
             default:
-                System.out.println("Invalido.");       
+                System.out.println("Invalido.");
         }
         System.out.println(s.toString());
-        System.out.println("IFS = "+returnedIFS);   
+        System.out.println("IFS = " + returnedIFS);
     }
- */
+*/
 }
 

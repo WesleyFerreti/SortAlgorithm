@@ -20,161 +20,162 @@ para o QuickSort a medida que o tamanho do array aumenta.
 import java.util.Scanner;
 
 public class HeapSort {
-    public static long IFS = 0;
-    public static long heapSort(double[] array, boolean desc){
-        long tempInicial = System.nanoTime();
-        
-	int count = array.length;
-	int fim = count - 1;
-        if(!desc){
-            heapify(array, count);
-            while(fim > 0){
 
-		double tmp = array[fim];
-		array[fim] = array[0];
-		array[0] = tmp;
-		siftDown(array, 0, fim - 1);
-		fim--;
+    public static long IFS = 0;
+
+    public static long heapSort(double[] array, boolean desc) {
+        long tempInicial = System.nanoTime();
+
+        int count = array.length;
+        int fim = count - 1;
+        if (!desc) {
+            heapify(array, count);
+            while (fim > 0) {
+
+                double tmp = array[fim];
+                array[fim] = array[0];
+                array[0] = tmp;
+                siftDown(array, 0, fim - 1);
+                fim--;
             }
-        }
-        else{
-            heapify(array, count,1);
-            while(fim > 0){ 
-                
-		double tmp = array[fim];
-		array[fim] = array[0];
-		array[0] = tmp;
-		siftDown(array, 0, fim - 1, 1);
-		fim--;
-            
+        } else {
+            heapify(array, count, 1);
+            while (fim > 0) {
+
+                double tmp = array[fim];
+                array[fim] = array[0];
+                array[0] = tmp;
+                siftDown(array, 0, fim - 1, 1);
+                fim--;
+
             }
         }
         long tempFinal = System.nanoTime();
         long tempDecorrido = tempFinal - tempInicial;
-        System.out.println("Tempo decorrido em nanosegundos para ordenação: "+ tempDecorrido);
-        System.out.println("Tempo decorrido em segundos para ordenação: "+ tempDecorrido*Math.pow(10,-9));
+        System.out.println("Tempo decorrido em nanosegundos para ordenação: " + tempDecorrido);
+        System.out.println("Tempo decorrido em segundos para ordenação: " + tempDecorrido * Math.pow(10, -9));
         return IFS;
     }
- 
-    public static void heapify(double[] array, int count){//Ascendente
-	
-	int inicio = (count - 2) / 2;
- 
-	while(inicio >= 0){	
+
+    public static void heapify(double[] array, int count) {//Ascendente
+
+        int inicio = (count - 2) / 2;
+
+        while (inicio >= 0) {
             siftDown(array, inicio, count - 1);
             inicio--;
-	}
+        }
     }
-    public static void heapify(double[] array, int count, int descendente){//Descendente
-	
-	int inicio = (count - 2) / 2;
- 
-	while(inicio >= 0){	
+
+    public static void heapify(double[] array, int count, int descendente) {//Descendente
+
+        int inicio = (count - 2) / 2;
+
+        while (inicio >= 0) {
             siftDown(array, inicio, count - 1, 1);
             inicio--;
-	}
+        }
     }
-    public static void siftDown(double[] a, int inicio, int fim){//Ascendente
-	
-	int raiz = inicio;
- 
-	while((raiz * 2 + 1) <= fim){     
-            int filho = raiz * 2 + 1;           
+
+    public static void siftDown(double[] a, int inicio, int fim) {//Ascendente
+
+        int raiz = inicio;
+
+        while ((raiz * 2 + 1) <= fim) {
+            int filho = raiz * 2 + 1;
             IFS++;
-            if(filho + 1 <= fim && a[filho] < a[filho + 1]){
-		filho = filho+1; 
+            if (filho + 1 <= fim && a[filho] < a[filho + 1]) {
+                filho = filho + 1;
             }
             IFS++;
-            if(a[raiz] < a[filho]){
-		double tmp = a[raiz];
-		a[raiz] = a[filho];
-		a[filho] = tmp;
-		raiz = filho;       
-            }else{
+            if (a[raiz] < a[filho]) {
+                double tmp = a[raiz];
+                a[raiz] = a[filho];
+                a[filho] = tmp;
+                raiz = filho;
+            } else {
                 return;
             }
-                    
-	}
+
+        }
     }
-    public static void siftDown(double[] a, int inicio, int fim, int descendente){//Descendente
-	
-	int raiz = inicio;
- 
-	while((raiz * 2 + 1) <= fim){     
-            int filho = raiz * 2 + 1;           
+
+    public static void siftDown(double[] a, int inicio, int fim, int descendente) {//Descendente
+
+        int raiz = inicio;
+
+        while ((raiz * 2 + 1) <= fim) {
+            int filho = raiz * 2 + 1;
             IFS++;
-            if(filho + 1 <= fim && a[filho] > a[filho + 1]){
-		filho = filho+1; 
+            if (filho + 1 <= fim && a[filho] > a[filho + 1]) {
+                filho = filho + 1;
             }
             IFS++;
-            if(a[raiz] > a[filho]){
-		double tmp = a[raiz];
-		a[raiz] = a[filho];
-		a[filho] = tmp;
-		raiz = filho;       
-            }else{
+            if (a[raiz] > a[filho]) {
+                double tmp = a[raiz];
+                a[raiz] = a[filho];
+                a[filho] = tmp;
+                raiz = filho;
+            } else {
                 return;
-            }           
-	}
+            }
+        }
     }
 
    /* public static void main(String[] args) {
-        
+
         Scanner tec = new Scanner(System.in);
         StringBuilder s = new StringBuilder("{");
         long returnedIFS = 0;
         System.out.print("Digite o tamanho do Arranjo:[10-100000000]\n");
         int size = tec.nextInt();
-        
-        if(size<10||size>100000000){
+
+        if (size < 10 || size > 100000000) {
             throw new IllegalArgumentException("Tamanho invalido.");
         }
-        double[] array = new double[size];    
+        double[] array = new double[size];
         System.out.print("\t1:Ascendente\n\t2:Descendente\nDigite:");
         int anwser = tec.nextInt();
-        switch(anwser){
-                case 1:
-                    for(int i = 0; i < array.length;i++){
-                        array[i] = array.length-i;                       
+        switch (anwser) {
+            case 1:
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = array.length - i;
+                }
+                System.out.println("Array preenchido de forma Descendente.");
+
+                returnedIFS = heapSort(array, false);
+
+                for (int i = 0; i < array.length; i++) {
+                    s.append(array[i]);
+                    if (i != array.length - 1) {
+                        s.append(" ");
                     }
-                    System.out.println("Array preenchido de forma Descendente.");
-                    
-                    returnedIFS = heapSort(array,false);
-                    
-                    for(int i = 0; i < array.length;i++ ){
-                        s.append(array[i]);
-                        if(i!=array.length-1){
-                            s.append(" ");
-                        }
+                }
+                s.append("}");
+                System.out.println("Array ordenado na forma Ascendente:");
+                break;
+            case 2:
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = (i + 1);
+                }
+                System.out.println("Array preenchido de forma Ascendente.");
+                returnedIFS = heapSort(array, true);
+                for (int i = 0; i < array.length; i++) {
+                    s.append(array[i]);
+                    if (i != array.length) {
+                        s.append(" ");
                     }
-                    s.append("}");
-                    System.out.println("Array ordenado na forma Ascendente:");
-                    break;
-                case 2:   
-                    for(int i = 0; i < array.length;i++){
-                        array[i] = (i+1);
-                    }
-                    System.out.println("Array preenchido de forma Ascendente.");
-                    returnedIFS = heapSort(array,true);
-                    for(int i = 0; i <array.length;i++ ){
-                        s.append(array[i]);
-                        if(i!=array.length){
-                            s.append(" ");
-                        }
-                    }
-                    s.append("}");
-                    System.out.println("Array ordenado na forma Descendente:");
-                    
-                    
-                    break;
-                    default:
-                        System.out.println("Invalido.");        
-            }
+                }
+                s.append("}");
+                System.out.println("Array ordenado na forma Descendente:");
+
+                break;
+            default:
+                System.out.println("Invalido.");
+        }
         System.out.println(s.toString());
-        System.out.println("IFS = "+returnedIFS);   
-        
-            
+        System.out.println("IFS = " + returnedIFS);
+
     }
-     
-     */ 
+*/
 }

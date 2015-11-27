@@ -2,9 +2,11 @@
 Algoritmos para ordenação de conjuntos numéricos (Ascendente e Descendente) 
 
 QuickSort(Not Recursive)</br>
-HeapSort
-MergeSort
-BubbleSort
+QuickSort(Recursivo)</br>
+HeapSort</br>
+MergeSort</br>
+BubbleSort</br>
+InsertionSort</br>
 
 Descomente o método main para testar os algoritmos.
 
